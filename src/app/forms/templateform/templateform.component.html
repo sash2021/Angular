@@ -1,0 +1,14 @@
+<h4>
+  Template Form Fundamentals
+</h4>
+<form #userForm="ngForm">
+  Name: <input type="text"  name='name' ngModel required><br><br>
+  Age: <input type="number" name='age' ngModel><br><br>
+  Gender: <select name="gender" ngModel><br>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select><br><br>
+  <button (click)="userData(userForm.value)"
+  [disabled]="!userForm.valid"
+  >Add User</button>
+</form>

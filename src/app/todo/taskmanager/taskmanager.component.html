@@ -1,0 +1,12 @@
+<h3>{{project}}</h3>
+
+Task:
+<input type="text" name="task" [(ngModel)]="task" placeholder="Add Task"> {{ task }} &nbsp;
+<button (click)="addTask()">Add Task</button>
+<br> //use ngFor directive to iterate through the array of taskList. Use ngFor with the element which is iterating
+<ul>
+  <li *ngFor="let t of taskList; let counter = index">
+    {{counter}}. {{t}}
+    <button (click)="removeTask(counter)">Done</button>
+  </li>
+</ul>

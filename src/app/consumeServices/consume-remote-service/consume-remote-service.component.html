@@ -1,0 +1,41 @@
+<h3>
+  data coming from restful endpoint
+</h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>User Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of receivedData">
+      <td>
+        <a routerLink="{{user.id}}"> {{user.id}}</a>
+      </td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>
+<hr>
+<form #userForm="ngForm">
+  Name:
+  <input type="text" name='name' ngModel required>
+  <br>
+  <br> Username:
+  <input type="text" name='username' ngModel>
+  <br>
+  <br> Email:
+  <input type="text" name='email' ngModel>
+  <br>
+  <br>
+  <button (click)="createUser(userForm.value)">Add User</button>
+</form>
+

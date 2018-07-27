@@ -1,0 +1,47 @@
+<h4>*ngFor Directive</h4>
+<button (click)="doMagic()">Do Magic</button>
+<div *ngIf="showPara">
+  <p>Should I display or hide?</p>
+</div>
+<table border="1" *ngIf="showPara">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Zip</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of typicodeUsers">
+      <td>{{user.id}}</td>
+      <td>{{user.name | uppercase}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address.zipcode}}</td>
+      <td>{{user.address.geo.lat}}</td>
+      <td>{{user.address.geo.lng}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Switch Case Directive</h4>
+<input type="text" [(ngModel)]='name'>
+<div [ngSwitch]='name'>
+  <div *ngSwitchCase="'obb'" style="background-color: pink;font-size: 24px">My name is OBB</div>
+  <div *ngSwitchCase="'santhosh'" style="background-color: greenyellow;font-size: 24px">My name is Santhosh</div>
+  <div *ngSwitchCase="'something'" style="background-color: lightblue;font-size: 24px">My name is Something</div>
+  <div *ngSwitchDefault style="background-color: wheat;font-size: 24px">I am everywhere!!!</div>
+</div>
+<button (click)="name='obb'">OBB</button> &nbsp;
+<button (click)="name='santhosh'">Santhosh</button>&nbsp;
+<button (click)="name='something'">Something</button>&nbsp;
+<button (click)="name=''">Clear</button>&nbsp;
+
+<hr>
+
+<h4>Custom Directive</h4>
+<p appSetbag>My background color is set using custom directive</p>
